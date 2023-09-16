@@ -2,8 +2,8 @@
 
 {{
    config(
-       target_database='airbnb',
-       target_schema='dev',
+       target_database='AIRBNB',
+       target_schema='DEV',
        unique_key='id',
        strategy='timestamp',
        updated_at='updated_at',

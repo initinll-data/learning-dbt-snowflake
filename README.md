@@ -280,3 +280,43 @@ Run the following command:
 ```python
 dbt test
 ```
+
+```python
+dbt test --select <model name>
+```
+
+```python
+dbt test --select <test name>
+```
+
+## About documentation
+dbt provides a way to generate documentation for your dbt project and render it as a website. 
+
+## Adding descriptions to your project
+To add descriptions to your project, use the description: key in the same files where you declare tests, i.e. in schema.yml file
+
+## Generating project documentation
+You can generate a documentation site for your project (with or without descriptions) using the CLI.
+
+Run the following command:
+```python
+dbt docs generate
+dbt docs serve
+```
+
+If you receive below error:
+`OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted`
+
+Then run following command in the Command Prompt window (where <PID> is the PID that needs to be killed):
+
+Look at the last column in the results - the PID.
+```cmd
+netstat -ano | findstr ":80"
+```
+
+kills the task:
+```cmd
+taskkill /PID <PID> /F
+```
+
+Now return the dbt docs commands.
