@@ -32,8 +32,9 @@ poetry shell
 To deactivate the virtual environment, you can use either of the following commands:
 
 ```python
-poetry exit
-poetry deactivate
+exit
+OR
+deactivate
 ```
 
 ## Installing dependencies
