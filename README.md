@@ -1,5 +1,7 @@
 # ANALYTICS ENGINEERING WITH AIRBNB
 
+Welcome to the Analytics Engineering project with Airbnb data. In this project, we will explore simulating the life of an Analytics Engineer at Airbnb. This involves tasks such as loading, cleansing, and exposing data, as well as writing tests, automations, and documentation.
+
 ● Simulating the life of an Analytics Engineer in Airbnb
 
 ● Loading, Cleansing, Exposing data
@@ -8,7 +10,11 @@
 
 ● Data source: Inside Airbnb: Berlin
 
+
 ## Python Dependency Management using Poetry
+
+We use Poetry for managing Python dependencies in this project. Poetry simplifies dependency management and ensures a consistent environment for your code.
+
 Refer - https://python-poetry.org/docs/
 
 ## Using your virtual environment with Poetry
@@ -16,29 +22,39 @@ Refer - https://python-poetry.org/docs/
 By default, Poetry creates a virtual environment in {cache-dir}/virtualenvs. You can change the cache-dir value by editing the Poetry configuration. Additionally, you can use the virtualenvs.in-project configuration variable to create virtual environments within your project directory.
 
 ## Activating the virtual environment
+To activate the virtual environment, run the following command:
+
 ```python
 poetry shell
 ```
 
 ## Deactivate  the virtual environment
+To deactivate the virtual environment, you can use either of the following commands:
+
 ```python
 poetry exit
 poetry deactivate
 ```
 
 ## Installing dependencies
+To install project dependencies, run the following command:
+
 ```python
 poetry install
 ```
 
 ## Project Overview
-Analytics_Engineering_with_Airbnb.pdf
+You can find a detailed project overview in the "Analytics_Engineering_with_Airbnb.pdf" document.
+
+Here are a couple of images that provide an overview of the project:
 
 ![Alt text](DBT_Materialization.png)
 
 ![Alt text](Materializations_Overview.png)
 
 ## Snowflake Environment Setup
+
+To set up the Snowflake environment, you need to create a user and configure roles and permissions. Copy the following SQL statements into a Snowflake Worksheet and execute them:
 
 ## Snowflake user creation
 Copy these SQL statements into a Snowflake Worksheet, select all and execute them (i.e. pressing the play button).
@@ -82,7 +98,7 @@ GRANT ALL ON FUTURE TABLES IN SCHEMA AIRBNB.RAW to ROLE transform;
 
 ## Snowflake data import
 
-Copy these SQL statements into a Snowflake Worksheet, select all and execute them (i.e. pressing the play button).
+To import data into Snowflake, you can use the following SQL statements. Copy them into a Snowflake Worksheet and execute them:
 
 ```sql
 -- Set up the defaults
@@ -144,12 +160,18 @@ COPY INTO raw_hosts (id, name, is_superhost, created_at, updated_at)
 ```
 
 ## Check DBT profile
+To verify your DBT profile configuration, run the following command:
+
 ```python
 dbt debug --config-dir
 ```
 
 ## DBT Profiles.yml
+You can find your DBT profile configuration file at the following path:
+
 Path url - ```%userprofile%\.dbt```
+
+Here's an example of a DBT profile configuration:
 
 ```yml
 dbt_airbnb_project:
@@ -168,6 +190,8 @@ dbt_airbnb_project:
 ```
 
 ## Verify Snowflake Connection
+Navigate to the DBT project directory and run the following command to verify the Snowflake connection:
+
 ```python
 cd dbt_airbnb_project
 dbt debug
