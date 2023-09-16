@@ -1,34 +1,44 @@
-# Python Dependency Management using Poetry
+# ANALYTICS ENGINEERING WITH AIRBNB
+
+● Simulating the life of an Analytics Engineer in Airbnb
+
+● Loading, Cleansing, Exposing data
+
+● Writing test, automations and documentation
+
+● Data source: Inside Airbnb: Berlin
+
+## Python Dependency Management using Poetry
 Refer - https://python-poetry.org/docs/
 
-# Using your virtual environment with Poetry
+## Using your virtual environment with Poetry
 
 By default, Poetry creates a virtual environment in {cache-dir}/virtualenvs. You can change the cache-dir value by editing the Poetry configuration. Additionally, you can use the virtualenvs.in-project configuration variable to create virtual environments within your project directory.
 
-# Activating the virtual environment
+## Activating the virtual environment
 ```python
 poetry shell
 ```
 
-# Deactivate  the virtual environment
+## Deactivate  the virtual environment
 ```python
 poetry exit
 poetry deactivate
 ```
 
-# Installing dependencies
+## Installing dependencies
 ```python
 poetry install
 ```
 
-# Project Overview
+## Project Overview
 Analytics_Engineering_with_Airbnb.pdf
 
 ![Alt text](DBT_Materialization.png)
 
 ![Alt text](Materializations_Overview.png)
 
-# Snowflake Environment Setup
+## Snowflake Environment Setup
 
 ## Snowflake user creation
 Copy these SQL statements into a Snowflake Worksheet, select all and execute them (i.e. pressing the play button).
@@ -133,12 +143,12 @@ COPY INTO raw_hosts (id, name, is_superhost, created_at, updated_at)
 
 ```
 
-# Check DBT profile
+## Check DBT profile
 ```python
 dbt debug --config-dir
 ```
 
-# DBT Profiles.yml
+## DBT Profiles.yml
 Path url - ```%userprofile%\.dbt```
 
 ```yml
@@ -157,7 +167,7 @@ dbt_airbnb_project:
   target: dev
 ```
 
-# Verify Snowflake Connection
+## Verify Snowflake Connection
 ```python
 cd dbt_airbnb_project
 dbt debug
