@@ -196,3 +196,16 @@ Navigate to the DBT project directory and run the following command to verify th
 cd dbt_airbnb_project
 dbt debug
 ```
+
+## Seeds
+Download the CSV from the following S3 location: https://dbtlearn.s3.us-east-2.amazonaws.com/seed_full_moon_dates.csv
+
+Then place it to the seeds folder.
+
+Now to apply seed, run the following command:
+```python
+dbt seed
+```
+
+This will result into `AIRBNB.DEV.SEED_FULL_MOON_DATES` table in snowflake
+
