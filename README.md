@@ -133,4 +133,32 @@ COPY INTO raw_hosts (id, name, is_superhost, created_at, updated_at)
 
 ```
 
+# Check DBT profile
+```python
+dbt debug --config-dir
+```
 
+# DBT Profiles.yml
+Path url - ```%userprofile%\.dbt```
+
+```yml
+dbt_airbnb_project:
+  outputs:
+    dev:
+      account: [snowflke account id x-y]
+      database: AIRBNB
+      password: dbtPassword123
+      role: transform
+      schema: DEV
+      threads: 1
+      type: snowflake
+      user: dbt
+      warehouse: COMPUTE_WH
+  target: dev
+```
+
+# Verify Snowflake Connection
+```python
+cd dbt_airbnb_project
+dbt debug
+```
