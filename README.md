@@ -269,3 +269,14 @@ Run the following command:
 dbt snapshot
 ```
 
+## Add tests to your DAG
+Tests are assertions you make about your models and other resources in your dbt project (e.g. sources, seeds and snapshots). When you run dbt test, dbt will tell you if each test in your project passes or fails.
+
+There are two ways of defining tests in dbt:
+- singular (custom sql scripts)
+- generic (build-in tests or macros)
+
+Run the following command:
+```python
+dbt test
+```
