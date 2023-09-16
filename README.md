@@ -198,7 +198,11 @@ cd dbt_airbnb_project
 dbt debug
 ```
 
-## Seeds
+## Add Seeds to your DAG
+Seeds are CSV files in your dbt project (typically in your seeds directory), that dbt can load into your data warehouse using the dbt seed command.
+
+Seeds can be referenced in downstream models the same way as referencing models — by using the ref function.
+
 Download the CSV from the following S3 location: https://dbtlearn.s3.us-east-2.amazonaws.com/seed_full_moon_dates.csv
 
 Then place it to the seeds folder.
@@ -209,4 +213,59 @@ dbt seed
 ```
 
 This will result into `AIRBNB.DEV.SEED_FULL_MOON_DATES` table in snowflake
+
+## Add sources to your DAG
+
+Sources make it possible to name and describe the data loaded into your warehouse by your Extract and Load tools. By declaring these tables as sources in dbt, you can then
+
+select from source tables in your models using the {{ source() }} function, helping define the lineage of your data
+test your assumptions about your source data
+calculate the freshness of your source data
+
+### Declaring a source
+Sources are defined in .yml files nested under a sources: key.
+
+To configure sources to snapshot freshness information, add a freshness block to your source and loaded_at_field to your table declaration:
+
+sources.yml
+
+```yml
+version: 2
+
+sources:
+  - name: airbnb
+    database: airbnb
+    schema: raw
+    tables:
+      - name: listings
+        identifier: raw_listings
+
+      - name: hosts
+        identifier: raw_hosts
+
+      - name: reviews
+        identifier: raw_reviews
+        freshness:
+          warn_after:
+            count: 1
+            period: hour
+          error_after:
+            count: 24
+            period: hour
+        loaded_at_field: date
+```
+
+### Checking source freshness
+To snapshot freshness information for your sources, use the dbt source freshness command :
+
+```python
+dbt source freshness
+```
+
+## Add snapshots to your DAG
+Run the following command:
+
+```python
+dbt snapshot
+```
 
