@@ -26,9 +26,9 @@ models:
                 ["Entire home/apt", "Private room", "Shared room", "Hotel room"]
 
       - name: minimum_nights
-        description: '{{ doc("dim_listing_cleansed__minimum_nights") }}'
+        description: '{{ doc("dim_listing_cleansed__minimum_nights") }}' # this is custom doc, models/docs.md
         tests:
-          - positive_value # this is a test macro
+          - positive_value # this is custom test macro, macros/positive_value
 
   - name: dim_hosts_cleansed
     columns:
